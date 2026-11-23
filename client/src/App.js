@@ -11,7 +11,6 @@ function App() {
   const [P1pos, setP1] = useState(1); // Computer (Red) - start at 1
   const [P2pos, setP2] = useState(1); // User (Blue) - start at 1
   const [turn, setTurn] = useState(1);
-  const [diceValue] = useState(null);
   const [, setIsComputerRolling] = useState(false);
   // Update state declarations
   const [userDiceValue, setUserDiceValue] = useState(null);
