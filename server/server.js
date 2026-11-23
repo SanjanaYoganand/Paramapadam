@@ -13,6 +13,11 @@ app.use(express.json());
 const apiRoutes = require('./routes/api');
 app.use('/api', apiRoutes);
 
+
+app.get('/', (req, res) => {
+  res.send('Paramapadam backend is running!');
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
