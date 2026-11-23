@@ -205,7 +205,7 @@ if (data.landedPos !== data.finalPos) {
           boxShadow: '0 2px 16px rgba(0,0,0,0.18)'
         }}
       >
-       {turn === 1 ? "THE PLAYER'S TURN" : "COMPUTER'S TURN"}
+       {turn === 1 ? "PLAYER'S TURN" : "COMPUTER'S TURN"}
 
 {showMsg && (
   <div style={{
