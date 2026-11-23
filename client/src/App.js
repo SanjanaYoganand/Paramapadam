@@ -77,7 +77,7 @@ const handleSnldFeedback = (snld) => {
       userRollAudioRef.current.play();
       await new Promise(resolve => setTimeout(resolve, 3000));
   
-      const { data } = await axios.post('http://localhost:5000/api/game/dice-roll');
+      const { data } = await axios.post('https://paramapadam-server.onrender.com/api/game/dice-roll');
       setUserDiceValue(data.value);
       setShowUserDiceGif(false); // 👈 Hide after roll shown
   
@@ -93,7 +93,7 @@ const handleSnldFeedback = (snld) => {
   
   const movePlayer = async (dice) => {
     try {
-      const { data } = await axios.post('http://localhost:5000/api/game/move', {
+      const { data } = await axios.post('https://paramapadam-server.onrender.com/api/game/move', {
         player: turn,
         dice,
       });
@@ -147,7 +147,7 @@ if (data.landedPos !== data.finalPos) {
         setComputerDiceValue(computerDice);
         await new Promise(resolve => setTimeout(resolve, 2000));
       
-        const computerMove = await axios.post('http://localhost:5000/api/game/move', {
+        const computerMove = await axios.post('https://paramapadam-server.onrender.com/api/game/move', {
           player: 2,
           dice: computerDice,
         });
