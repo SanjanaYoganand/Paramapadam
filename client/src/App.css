@@ -122,6 +122,12 @@ html, body, #root {
   top: '0px';  
 }
 
+.board-wrapper {
+  position: relative;
+  width: 740px;
+  height: 740px;
+  flex-shrink: 0;
+}
 
 
 @keyframes App-logo-spin {
@@ -165,6 +171,13 @@ html, body, #root {
     flex-shrink: 0;
   }
 
+  .board-wrapper {
+  width: 95vw;
+  height: 95vw;
+  max-width: 740px;
+  max-height: 740px;
+}
+
   /* Board */
   .board-container {
     order: 2;
@@ -181,11 +194,6 @@ html, body, #root {
     justify-content: center;
   }
 
-  .board-container img:first-child {
-    width: 95vw !important;
-    height: 95vw !important;
-    top: 0 !important;
-  }
 
   /* User panel */
   .user-panel {
