@@ -50,6 +50,7 @@ html, body, #root {
 
 .game-container {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -144,37 +145,39 @@ html, body, #root {
 
   .game-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
     justify-content: flex-start;
     align-items: center;
     height: auto;
     min-height: 100vh;
+    width: 100%;
     overflow: visible;
     padding-top: 100px;
     padding-bottom: 30px;
   }
 
-  /* Computer panel - above board */
   .computer-panel {
     order: 1;
     width: 90%;
-    min-height: auto;
-    margin: 15px 0;
-  }
-
-  /* Board - in the middle */
-  .board-container {
-    order: 2;
+    min-height: 180px;
     margin: 15px 0;
     flex-shrink: 0;
   }
 
-  /* User panel - below board */
+  .board-container {
+    order: 2;
+    min-width: 800px;
+    min-height: 800px;
+    margin: 15px 0;
+    flex-shrink: 0;
+  }
+
   .user-panel {
     order: 3;
     width: 90%;
-    min-height: auto;
+    min-height: 180px;
     margin: 15px 0;
+    flex-shrink: 0;
   }
 
 }
