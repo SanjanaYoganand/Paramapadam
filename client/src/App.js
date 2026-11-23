@@ -69,7 +69,7 @@ const getCoordinates = (pos) => {
 
   return {
     left: `${((baseLeft + col * squareWidth) / 740) * 100}%`,
-    top: `${((baseTop - row * squareHeight - (1.45 * squareHeight)) / 740) * 100}%`
+    top: `${((baseTop - row * squareHeight - (1.36 * squareHeight)) / 740) * 100}%`
   };
 };
   
