@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import diceRollGif from './assets/dice-roll.gif';
 import diceRoll1Gif from './assets/dice-roll1.gif';
@@ -11,8 +11,8 @@ function App() {
   const [P1pos, setP1] = useState(1); // Computer (Red) - start at 1
   const [P2pos, setP2] = useState(1); // User (Blue) - start at 1
   const [turn, setTurn] = useState(1);
-  const [diceValue, setDice] = useState(null);
-  const [isComputerRolling, setIsComputerRolling] = useState(false);
+  const [diceValue] = useState(null);
+  const [, setIsComputerRolling] = useState(false);
   // Update state declarations
   const [userDiceValue, setUserDiceValue] = useState(null);
   const [computerDiceValue, setComputerDiceValue] = useState(null);
