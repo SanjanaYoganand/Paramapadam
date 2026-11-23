@@ -53,7 +53,9 @@ const handleSnldFeedback = (snld) => {
 
   // Function to get coordinates based on position
 const getCoordinates = (pos) => {
-  if (pos < 1 || pos > 132) return { left: '-100%', top: '-100%' };
+  if (pos < 1 || pos > 132) {
+    return { left: '-100%', top: '-100%' };
+  }
 
   const baseLeft = 57.87;
   const baseTop = 749.625;
@@ -61,16 +63,13 @@ const getCoordinates = (pos) => {
   const squareHeight = 60.435;
 
   const row = Math.floor((pos - 1) / 11);
-  const col = (row % 2 === 0)
+  const col = row % 2 === 0
     ? (pos - 1) % 11
     : 10 - ((pos - 1) % 11);
 
-  const left = baseLeft + (col * squareWidth);
-  const top = baseTop - (row * squareHeight);
-
   return {
-    left: `${(left / 740) * 100}%`,
-    top: `${(top / 740) * 100}%`
+    left: `${((baseLeft + col * squareWidth) / 740) * 100}%`,
+    top: `${((baseTop - row * squareHeight) / 740) * 100}%`
   };
 };
   
@@ -288,65 +287,51 @@ if (data.landedPos !== data.finalPos) {
         </div>
       </div>
       {/* Board Centered */}
-      <div className="board-container">
-        <div className="board-wrapper">
-         <img
-  src={require('./assets/board.png')}
-  alt="Board"
-  style={{
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
-    top: '6.7568%',
-    left: 0
-  }}
-/>
-         {/* USER / PLAYER MARKER */}
-<img
-  src="/p1.png"
-  alt="Player"
-  style={{
-    position: 'absolute',
-    left: `${getCoordinates(P1pos).left}px`,
-    top: `${getCoordinates(P1pos).top}px`,
-width: '7.43%',
-height: '7.43%',
-    objectFit: 'contain',
-    transform: 'translate(-50%, -50%)',
-    pointerEvents: 'none',
-    zIndex: 2,
-    filter: `
-  drop-shadow(0 0 3px white)
-  drop-shadow(0 0 7px #2196f3)
-  drop-shadow(0 0 12px #2196f3)
-`,
-  }}
-/>
+     <div className="board-container">
+  <div className="board-wrapper">
 
-{/* COMPUTER MARKER */}
-<img
-  src="/p2.png"
-  alt="Computer"
-  style={{
-    position: 'absolute',
-    left: `${getCoordinates(P2pos).left}px`,
-    top: `${getCoordinates(P2pos).top}px`,
-width: '7.43%',
-height: '7.43%',
-    objectFit: 'contain',
-    transform: 'translate(-50%, -50%)',
-    pointerEvents: 'none',
-    zIndex: 2,
-   filter: `
-  drop-shadow(0 0 3px white)
-  drop-shadow(0 0 7px #f44336)
-  drop-shadow(0 0 12px #f44336)
-`,
-  }}
-/>
- />
-        </div>
-      </div>
+    <img
+      src={require('./assets/board.png')}
+      alt="Board"
+      className="board-image"
+    />
+
+    {/* USER / PLAYER MARKER */}
+    <img
+      src="/p1.png"
+      alt="Player"
+      style={{
+        position: 'absolute',
+        left: getCoordinates(P1pos).left,
+        top: getCoordinates(P1pos).top,
+        width: '7.43%',
+        height: '7.43%',
+        objectFit: 'contain',
+        transform: 'translate(-50%, -50%)',
+        pointerEvents: 'none',
+        zIndex: 2
+      }}
+    />
+
+    {/* COMPUTER MARKER */}
+    <img
+      src="/p2.png"
+      alt="Computer"
+      style={{
+        position: 'absolute',
+        left: getCoordinates(P2pos).left,
+        top: getCoordinates(P2pos).top,
+        width: '7.43%',
+        height: '7.43%',
+        objectFit: 'contain',
+        transform: 'translate(-50%, -50%)',
+        pointerEvents: 'none',
+        zIndex: 2
+      }}
+    />
+
+  </div>
+</div>
       {/* User Panel (Right) */}
       <div className={`side-panel user-panel${turn !== 1 ? ' active' : ''}`}>
         <div className="panel-content"  style={{
