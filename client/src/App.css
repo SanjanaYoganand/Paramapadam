@@ -132,19 +132,49 @@ html, body, #root {
   }
 }
 
-/* Mobile layout */
-@media (max-width: 768px) {
-  .game-container {
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
+/* MOBILE LAYOUT */
+@media screen and (max-width: 768px) {
 
   html, body, #root {
-    height: 100%;
+    height: auto;
+    min-height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
   }
+
+  .game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+    padding-top: 100px;
+    padding-bottom: 30px;
+  }
+
+  /* Computer panel - above board */
+  .computer-panel {
+    order: 1;
+    width: 90%;
+    min-height: auto;
+    margin: 15px 0;
+  }
+
+  /* Board - in the middle */
+  .board-container {
+    order: 2;
+    margin: 15px 0;
+    flex-shrink: 0;
+  }
+
+  /* User panel - below board */
+  .user-panel {
+    order: 3;
+    width: 90%;
+    min-height: auto;
+    margin: 15px 0;
+  }
+
 }
