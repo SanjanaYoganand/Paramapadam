@@ -131,3 +131,20 @@ html, body, #root {
     transform: rotate(360deg);
   }
 }
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .game-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  html, body, #root {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
