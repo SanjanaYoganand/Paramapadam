@@ -200,12 +200,12 @@ if (data.landedPos !== data.finalPos) {
           boxShadow: '0 2px 16px rgba(0,0,0,0.18)'
         }}
       >
-       {turn === 1 ? "YOUR TURN" : "COMPUTER'S TURN"}
+       {turn === 1 ? "THE PLAYER'S TURN" : "COMPUTER'S TURN"}
 
 {showMsg && (
   <div style={{
     marginTop: '1px',
-    fontSize: '13px',
+    fontSize: '15px',
     fontWeight: 900,
     color: snldMsg.includes("SNAKE") ? '#ff5252' : '#4caf50',
     letterSpacing: '2px',
