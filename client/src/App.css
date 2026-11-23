@@ -107,26 +107,23 @@ html, body, #root {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 800px;
-  min-height: 800px;
   margin: 0 20px;
-  /* Remove or comment out the following line */
-  /* top: '-80px';  */
-}
-
-.board-image {
-  height: 100vh;       /* stretch vertically to fill screen */
-  width: auto;         /* keep aspect ratio */
-  max-width: 100%;     /* don’t exceed screen width */
-  object-fit: contain; /* ensure it scales correctly */
-  top: '0px';  
 }
 
 .board-wrapper {
   position: relative;
   width: 740px;
-  height: 740px;
+  height: 790px;
   flex-shrink: 0;
+}
+
+.board-image {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 740px;
+  object-fit: contain;
 }
 
 
@@ -171,11 +168,16 @@ html, body, #root {
     flex-shrink: 0;
   }
 
-  .board-wrapper {
+ .board-wrapper {
   width: 95vw;
-  height: 95vw;
+  height: calc(95vw + 50px);
   max-width: 740px;
-  max-height: 740px;
+}
+
+.board-image {
+  width: 100%;
+  height: 100%;
+  top: 0;
 }
 
   /* Board */
@@ -202,6 +204,7 @@ html, body, #root {
     min-height: 160px;
     margin: 20px 0;
     flex-shrink: 0;
+    margin-top: 10px;
   }
 
 }
